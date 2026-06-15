@@ -40,7 +40,7 @@ In this task, you will make the service available to systemd and confirm that it
 - Review service status details and any relevant logs to confirm the backup script can be invoked through systemd.
 - If needed, correct the unit definition and retest until the service loads and runs successfully.
 
-<validation step="Systemd backup service"/>
+<validation step="951a19c4-e1ce-4dff-b5df-e2f981bbc880" />
 
 ## Summary
 
