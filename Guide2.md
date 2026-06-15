@@ -58,7 +58,7 @@ In this task, you will confirm that the static website endpoint is reachable and
 - Verify that the returned page contains the text **CloudLabs Azure Challenge Lab**.
 - If necessary, review the uploaded files in `$web` and correct any issues before final validation.
 
-<validation step="Static Website"/>
+<validation step="951a19c4-e1ce-4dff-b5df-e2f981bbc880" />
 
 ## Summary
 
