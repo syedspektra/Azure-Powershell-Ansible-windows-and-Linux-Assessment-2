@@ -63,7 +63,7 @@ Success for this exercise means all of the following are true:
 5. The storage account is configured with **StorageV2** and **Standard_LRS**.
 6. The deployed resource remains aligned to the lab's low-cost design goal.
 
-<validation step="Exercise 1 ARM Deployment"/>
+<validation step="951a19c4-e1ce-4dff-b5df-e2f981bbc880" />
 
 ## Summary
 
