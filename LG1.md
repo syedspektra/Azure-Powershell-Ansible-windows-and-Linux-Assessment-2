@@ -43,7 +43,7 @@ You are expected to follow Azure deployment best practices and use the specified
 - The Storage Account kind is **StorageV2**.
 - The Storage Account SKU is **Standard_LRS**.
 
-<validation step="a160b434-3a61-41bf-9aff-48d257f5cee4" />
+<validation step="6939e7d4-6b18-4c10-943a-89453bf0d57f" />
 
 ---
 
