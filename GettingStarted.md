@@ -15,12 +15,12 @@ This challenge lab includes four mostly independent exercises that share the sam
 
 Azure tasks are completed from the Linux jump VM by opening **Microsoft Edge**, browsing to <https://portal.azure.com>, and signing in with:
 
-- Username: `<inject key="AzureAdUserEmail"></inject>`
-- Password: `<inject key="AzureAdUserPassword"></inject>`
+- Username: <inject key="azureaduseremail" enableCopy="false" />
+- Password: <inject key="azureaduserpassword" enableCopy="false" />
 
 Linux tasks are completed directly on the jump VM.
 
-Your deployment identifier for this lab is **<inject key="DeploymentID" enableCopy="false"/>**.
+Your deployment identifier for this lab is **<inject key="deploymentid" enableCopy="false"/>**.
 
 ## Expectations
 
