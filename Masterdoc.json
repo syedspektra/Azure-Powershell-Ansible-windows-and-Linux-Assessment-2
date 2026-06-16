@@ -8,19 +8,19 @@
         "Order": 1
       },
       {
-        "RawFilePath": "https://syedfuzailmicrolandlab2.s3.ap-south-1.amazonaws.com/S5+updated.md",
+        "RawFilePath": "https://raw.githubusercontent.com/syedspektra/Azure-Powershell-Ansible-windows-and-Linux-Assessment-2/refs/heads/main/LG1.md",
         "Order": 2
       },
       {
-        "RawFilePath": "https://syedfuzailmicrolandlab2.s3.ap-south-1.amazonaws.com/S6+updated.md",
+        "RawFilePath": "https://raw.githubusercontent.com/syedspektra/Azure-Powershell-Ansible-windows-and-Linux-Assessment-2/refs/heads/main/LG2.md",
         "Order": 3
       },
       {
-        "RawFilePath": "https://syedfuzailmicrolandlab2.s3.ap-south-1.amazonaws.com/S7+updated.md",
+        "RawFilePath": "https://raw.githubusercontent.com/syedspektra/Azure-Powershell-Ansible-windows-and-Linux-Assessment-2/refs/heads/main/LG3.md",
         "Order": 4
       },
       {
-        "RawFilePath": "https://syedfuzailmicrolandlab2.s3.ap-south-1.amazonaws.com/S6+updated.md",
+        "RawFilePath": "https://raw.githubusercontent.com/syedspektra/Azure-Powershell-Ansible-windows-and-Linux-Assessment-2/refs/heads/main/LG4.md",
         "Order": 5
       }
     ]
