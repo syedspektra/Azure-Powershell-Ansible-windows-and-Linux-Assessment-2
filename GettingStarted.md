@@ -20,7 +20,7 @@ Azure tasks are completed from the Linux jump VM by opening **Microsoft Edge**, 
 
 Linux tasks are completed directly on the jump VM.
 
-Your deployment identifier for this lab is **<inject key="deploymentid" enableCopy="false"/>**.
+Your deployment identifier for this lab is <inject key="deploymentid" enableCopy="false" />
 
 ## Expectations
 
