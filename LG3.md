@@ -35,7 +35,7 @@ You are expected to follow Linux automation best practices and use the specified
 - A cron job exists that runs the PowerShell script **logtask.ps1**.
 - The script generates timestamped entries in **cronjob.log**.
 
-<validation step="1517c52a-e4a7-4715-9923-e5afdfb654d5" />
+<validation step="78d3c1ec-5798-49a9-80ae-6dc76c7fd4f0" />
 
 ---
 
