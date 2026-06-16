@@ -95,7 +95,7 @@ You are expected to follow Azure best practices and use the specified configurat
 - An **index.html** file is published to the **$web** container.
 - The Storage Account's primary web endpoint returns the published page.
 
-<validation step="50cae2eb-16d3-4559-83ca-e4c995ee415a" />
+<validation step="b687500b-32a1-485c-8ab3-2168d70bb1c9" />
 
 ---
 
