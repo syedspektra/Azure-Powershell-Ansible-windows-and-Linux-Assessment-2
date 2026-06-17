@@ -38,7 +38,17 @@ pwsh $HOME/logtask.ps1
 (crontab -l 2>/dev/null; echo "* * * * * /usr/bin/pwsh $HOME/logtask.ps1") | crontab -
 ```
 
-> Wait about a minute and run `cat $HOME/cronjob.log` to confirm new timestamped entries are being added automatically.
+> The command above stores the full path because `$HOME` expands when you run it. If you ever edit the crontab by hand (`crontab -e`), use `$HOME` or the full path such as `/home/Labuser/logtask.ps1` — do **not** use `$USER`, because cron does not set it and the job will not run.
+
+**3. Confirm the cron entry exists and the log is being written automatically:**
+
+```bash
+crontab -l
+sleep 70
+cat $HOME/cronjob.log
+```
+
+You should see the cron entry listed, and multiple timestamped lines (one per minute) in `cronjob.log`.
 
 ### Success Criteria
 
