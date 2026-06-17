@@ -10,25 +10,56 @@ You have joined an organization as a Cloud Engineer. The application team needs 
 
 ## Solution
 
-To meet these requirements, you will define a systemd service that runs a continuous background process, then enable and start it. systemd is the standard init and service manager on modern Linux distributions, providing automatic startup, restart-on-failure, and centralized service control. Success is confirmed when the service is both enabled and active.
+To meet these requirements, you will create a background process script, define a systemd unit that manages it, then enable and start the service.
 
 # Assessment Objectives
 
-This lab environment is designed to evaluate your practical skills in managing system services on Linux. As part of this assessment, you will create and configure a systemd service that runs as a managed, auto-starting service.
+You are expected to create and configure a systemd service named **labservice** that is enabled (starts on boot) and active (running).
 
-You are expected to follow Linux service management best practices and use the specified service name to ensure successful validation.
-
-> **Note:** Perform all steps inside the **provided Linux VM** using an account with `sudo` privileges. Do not change the specified service name, as the validation script depends on it.
+> **Where to perform this task:** Complete this scenario in the **terminal on the lab VM** using an account with `sudo` privileges.
 
 ---
 
 ## Task 1: Configure a System Service
 
-> **Note:** Follow the specified naming conventions exactly to ensure validation works properly.
+**1. Create the background process script `/usr/local/bin/labservice.sh`:**
 
-1. Create a systemd service named **labservice** that runs a continuous background process on the Linux VM.
-2. Configure the service to start automatically **on boot**.
-3. Start the service so that it is currently running.
+```bash
+sudo tee /usr/local/bin/labservice.sh > /dev/null << 'EOF'
+#!/bin/bash
+while true; do
+  echo "$(date) - Lab service running" >> /var/log/labservice.log
+  sleep 30
+done
+EOF
+sudo chmod +x /usr/local/bin/labservice.sh
+```
+
+**2. Create the systemd unit file `/etc/systemd/system/labservice.service`:**
+
+```bash
+sudo tee /etc/systemd/system/labservice.service > /dev/null << 'EOF'
+[Unit]
+Description=Lab Custom Service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/labservice.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+**3. Reload systemd, then enable and start the service:**
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now labservice
+```
+
+> Confirm with `systemctl is-enabled labservice` (expected: `enabled`) and `systemctl is-active labservice` (expected: `active`).
 
 ### Success Criteria
 
@@ -41,4 +72,3 @@ You are expected to follow Linux service management best practices and use the s
 ---
 
 ## You have successfully completed the Assessment.
-
