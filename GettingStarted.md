@@ -20,8 +20,8 @@ Scenarios 5 and 6 are performed in the **Azure portal** and are validated automa
 1. Open a web browser and go to **https://portal.azure.com**.
 2. Sign in with the Azure credentials below:
 
-   * **Username:<inject key="azureaduseremail" cloudname="Microsoft Azure" enableCopy="false" enableClickToPaste="false" />
-   * **Password:<inject key="azureaduserpassword" cloudname="Microsoft Azure" enableCopy="false" enableClickToPaste="false" />
+      Username:<inject key="azureaduseremail" cloudname="Microsoft Azure" enableCopy="false" enableClickToPaste="false" />
+      Password:<inject key="azureaduserpassword" cloudname="Microsoft Azure" enableCopy="false" enableClickToPaste="false" />
 
    > Tip: open a private / incognito window first so the lab account doesn't conflict with any personal Azure session.
 
