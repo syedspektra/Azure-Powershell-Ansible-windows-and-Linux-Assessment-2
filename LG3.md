@@ -12,7 +12,7 @@ You have joined an organization as a Cloud Engineer. The operations team needs a
 
 To meet these requirements, you will author a PowerShell (pwsh) script that records a timestamped entry to a log file, and configure a cron job that runs the script every minute.
 
-# Assessment Objectives
+## Assessment Objectives
 
 You are expected to create the PowerShell script and schedule it with cron so the log file is updated automatically.
 
