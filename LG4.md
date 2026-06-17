@@ -10,7 +10,7 @@ You have joined an organization as a Cloud Engineer. The application team needs 
 
 ## Solution
 
-To meet these requirements, you will create a background process script, define a systemd unit that manages it, then enable and start the service.
+To meet these requirements, you will define a systemd unit that runs a continuous background process, then enable and start the service.
 
 # Assessment Objectives
 
@@ -22,29 +22,17 @@ You are expected to create and configure a systemd service named **labservice** 
 
 ## Task 1: Configure a System Service
 
-**1. Create the background process script `/usr/local/bin/labservice.sh`:**
-
-```bash
-sudo tee /usr/local/bin/labservice.sh > /dev/null << 'EOF'
-#!/bin/bash
-while true; do
-  echo "$(date) - Lab service running" >> /var/log/labservice.log
-  sleep 30
-done
-EOF
-sudo chmod +x /usr/local/bin/labservice.sh
-```
-
-**2. Create the systemd unit file `/etc/systemd/system/labservice.service`:**
+**1. Create the systemd unit file `/etc/systemd/system/labservice.service`:**
 
 ```bash
 sudo tee /etc/systemd/system/labservice.service > /dev/null << 'EOF'
 [Unit]
-Description=Lab Custom Service
+Description=Lab Service
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/labservice.sh
+Type=simple
+ExecStart=/bin/bash -c 'while true; do sleep 60; done'
 Restart=always
 
 [Install]
@@ -52,14 +40,21 @@ WantedBy=multi-user.target
 EOF
 ```
 
-**3. Reload systemd, then enable and start the service:**
+**2. Reload systemd, then enable and start the service:**
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable --now labservice
 ```
 
-> Confirm with `systemctl is-enabled labservice` (expected: `enabled`) and `systemctl is-active labservice` (expected: `active`).
+**3. Confirm the service is enabled and active:**
+
+```bash
+systemctl is-enabled labservice
+systemctl is-active labservice
+```
+
+Both commands should return **enabled** and **active**, respectively.
 
 ### Success Criteria
 
