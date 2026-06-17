@@ -12,7 +12,7 @@ You have joined an organization as a Cloud Engineer. The application team needs 
 
 To meet these requirements, you will define a systemd unit that runs a continuous background process, then enable and start the service.
 
-# Assessment Objectives
+## Assessment Objectives
 
 You are expected to create and configure a systemd service named **labservice** that is enabled (starts on boot) and active (running).
 
