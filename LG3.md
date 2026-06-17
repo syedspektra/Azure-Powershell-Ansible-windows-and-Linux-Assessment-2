@@ -2,7 +2,7 @@
 
 ## Lab Overview
 
-In this assessment, you will automate a recurring task on a Linux system. You will create a PowerShell script, schedule it to run on a fixed interval using the Linux **cron** scheduler, and ensure the scheduled job executes automatically.
+In this assessment, you will automate a recurring task on a Linux system. You will create a PowerShell script and schedule it to run on a fixed interval using the Linux **cron** scheduler.
 
 ## Scenario
 
@@ -10,25 +10,35 @@ You have joined an organization as a Cloud Engineer. The operations team needs a
 
 ## Solution
 
-To meet these requirements, you will author a PowerShell (pwsh) script that records a timestamped entry to a log file, and configure a cron job that runs the script every minute. Cron is the standard time-based job scheduler on Linux, and running PowerShell through cron lets you reuse cross-platform automation scripts on Linux hosts. Success is confirmed when the log file is updated automatically by the scheduled job.
+To meet these requirements, you will author a PowerShell (pwsh) script that records a timestamped entry to a log file, and configure a cron job that runs the script every minute.
 
 # Assessment Objectives
 
-This lab environment is designed to evaluate your practical skills in scheduling automated tasks on Linux. As part of this assessment, you will create a PowerShell script and configure a cron job that runs it on a schedule.
+You are expected to create the PowerShell script and schedule it with cron so the log file is updated automatically.
 
-You are expected to follow Linux automation best practices and use the specified file names to ensure successful validation.
-
-> **Note:** Perform all steps inside the **provided Linux VM**. PowerShell (`pwsh`) is available on the lab VM. Do not change the specified script or log file names, as the validation script depends on them.
+> **Where to perform this task:** Complete this scenario in the **terminal on the lab VM**.
 
 ---
 
 ## Task 1: Schedule an Automated Task Using Cron
 
-> **Note:** Follow the specified naming conventions exactly to ensure validation works properly.
+**1. Create the PowerShell script `logtask.ps1` in your home directory:**
 
-1. Create a PowerShell script named **logtask.ps1** in your home directory that writes a timestamped entry to a log file named **cronjob.log** (also in your home directory) each time it runs.
-2. Schedule **logtask.ps1** to run automatically **every minute** using cron.
-3. Ensure the cron job executes and that **cronjob.log** is updated automatically.
+```bash
+cat > $HOME/logtask.ps1 << 'EOF'
+$timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+"$timestamp - Scheduled task executed" | Out-File -FilePath "$HOME/cronjob.log" -Append
+EOF
+```
+
+**2. Run it once (to create the log), then schedule it to run every minute with cron:**
+
+```bash
+pwsh $HOME/logtask.ps1
+(crontab -l 2>/dev/null; echo "* * * * * /usr/bin/pwsh $HOME/logtask.ps1") | crontab -
+```
+
+> Wait about a minute and run `cat $HOME/cronjob.log` to confirm new timestamped entries are being added automatically.
 
 ### Success Criteria
 
